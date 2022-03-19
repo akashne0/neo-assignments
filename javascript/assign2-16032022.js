@@ -19,61 +19,82 @@ function validation() {
     // for first name validation
     var fname = document.getElementById("fName").value;
     if (fname == ""){
-        document.getElementById("fName-error").innerHTML= "**Please enter your first name";
+        document.getElementById("fName-error").style.display = "block";
+        document.getElementById("fName-error").innerHTML = "**Please enter your first name";
         valid = false;
+    }else{
+        document.getElementById("fName-error").style.display = "none";
+        document.getElementById("fName-error").innerHTML = "";
     }
 
     // for last name validation
     var lname = document.getElementById("lName").value;
     if (lname == ""){
         // alert("Last name must be filled out")
-        document.getElementById("lName-error").innerHTML= "**Please enter your last name";
+        document.getElementById("lName-error").style.display = "block";
+        document.getElementById("lName-error").innerHTML = "**Please enter your last name";
        valid = false;
+    }else{
+        document.getElementById("lName-error").style.display = "none";
+        document.getElementById("lName-error").innerHTML = "";
+
     }
 
     // for phone number validation
-    var phn = document.getElementById("phone").value;
+    var phone = document.getElementById("phone").value;
     // // if (phn == (1 > phn.length) || (10 < phn.length)){ 
     //     // if (phn.length !== 10)  {
     // number empty or not validation
-    if (phn == ""){
-        document.getElementById("phone-error").innerHTML= " **Number cannot be blank ";
+    if (phone == ""){
+        document.getElementById("phone-error").style.display = "block";
+        document.getElementById("phone-error").innerHTML = " **Number cannot be blank ";
         valid = false;
-        }
-
-    // number length should only be 10.
-     if (phn.length != 10) {
-        document.getElementById("phone-error").innerHTML= "**Please enter valid phone number";
+    }else if(phone.length != 10){
+        document.getElementById("phone-error").style.display = "block";
+        document.getElementById("phone-error").innerHTML = "**Please enter valid phone number";
         valid = false;
-    }
-
-    // only number validation 
-    if (isNaN(phn)) {
-        document.getElementById("phone-error").innerHTML= "**Please enter only number";
+    }else if (isNaN(phone)) {
+        document.getElementById("phone-error").style.display = "block";
+        document.getElementById("phone-error").innerHTML = "**Please enter only number";
        valid = false;
+    }else{
+        document.getElementById("phone-error").style.display = "none";
+        document.getElementById("phone-error").innerHTML = "";
     }
 
     
     var poffice = document.getElementById("pOffice").value;
     // office number (only number no other char) validation;
     if (isNaN(poffice)) {
+        document.getElementById("pOffice-error").style.display= "block";
         document.getElementById("pOffice-error").innerHTML= "**Please enter only number";
        valid = false;
+    }else{
+        document.getElementById("pOffice-error").style.display= "none";
+        document.getElementById("pOffice-error").innerHTML= "";
     }
     
     var email = document.getElementById("email").value;
     // email id (empty or not) validation
     if (email == ""){
+        document.getElementById("email-error").style.display= "block";
         document.getElementById("email-error").innerHTML= "**Email cannot be blank";
        valid = false;
+    }else{
+        document.getElementById("email-error").style.display= "none";
+        document.getElementById("email-error").innerHTML= "";
     }
 
     // email id (empty or not)format validation
     // var re = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8}+)(\.[a-z]{2,8})?$/;
     var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (!re.test(email)){
+        document.getElementById("email-error").style.display= "block";
         document.getElementById("email-error").innerHTML= "**Email format is not valid";
        valid = false;
+    }else{
+        document.getElementById("email-error").style.display= "none";
+        document.getElementById("email-error").innerHTML= "";
     }
     
     
@@ -82,21 +103,32 @@ function validation() {
     if (pass == "") {
         document.getElementById("pass-error").innerHTML= "**password cannot be blank";
        valid = false;  
-    }   
+    }else{
+        document.getElementById("pass-error").style.display= "none";
+        document.getElementById("pass-error").innerHTML= "";
+    }
 
         // alphanumeric validation;
     var rege = /^\w{8,12}$/;
     if (!rege.test(pass)){
+        document.getElementById("pass-error").style.display= "block";
         document.getElementById("pass-error").innerHTML= "**Password should be alpha-numeric and between 8-12 characters";
        valid = false;
+    }else{
+        document.getElementById("pass-error").style.display= "none";
+        document.getElementById("pass-error").innerHTML= "";
     }
 
     var conpass = document.getElementById("conpass").value;
         // match password
     if (conpass != pass ) {
+        document.getElementById("conpass-error").style.display= "block";
         document.getElementById("conpass-error").innerHTML= "**password do not match";
        valid = false;  
-    }   
+    }else{
+        document.getElementById("conpass-error").style.display= "none";
+        document.getElementById("conpass-error").innerHTML= "";
+    }
 
     // DOB validation
     var  day= document.getElementById("birth-day").value;
@@ -117,35 +149,54 @@ function validation() {
     // }
 
     if (day == "day"){
+        document.getElementById("date-error").style.display= "block";
         document.getElementById("date-error").innerHTML= "please select proper date format";
         valid = false;
     }else if (month == "month"){
+        document.getElementById("date-error").style.display= "block";
         document.getElementById("date-error").innerHTML= "please select proper date format";
         valid = false;
     }else if(year == "year" ){
+        document.getElementById("date-error").style.display= "block";
         document.getElementById("date-error").innerHTML= "please select proper date format";
         valid = false;
+    }else{
+        document.getElementById("date-error").style.display= "none";
+        document.getElementById("date-error").innerHTML= "";
     }
 
     // gender validation
-    gender = document.forms.radio.value;
-    if (gender <= 0) {
+    gender = document.getElementsByName("rdb-gender");
+    if (!(gender[0].checked || gender[1].checked)) {
+        document.getElementById("gender-error").style.display = "block";
         document.getElementById("gender-error").innerHTML = "**please select atleast 1 value";
             valid = false; 
+    }else{
+        document.getElementById("gender-error").style.display = "none";
+        document.getElementById("gender-error").innerHTML = "";
+
     }
     
     // interest validation
-    var check = document.querySelector('input[name="checkbox1"]:checked');
-    if (check == null){
+    var checkboxActivity = document.querySelectorAll('input[name="rdb-gender"]:checked').length;
+    if (checkboxActivity < 2){
+        document.getElementById("interest-error").style.display = "block";
         document.getElementById("interest-error").innerHTML = "**please select atleast 1 value";
-            valid = false; 
+        valid = false; 
+    }else{
+        document.getElementById("interest-error").style.display = "none";
+        document.getElementById("interest-error").innerHTML = "";
     }
 
     // textbox validation
     var text = document.getElementById("about").value;
     if (text == "" ){
+        document.getElementById("about-error").style.display = "block";
         document.getElementById("about-error").innerHTML = " **please enter some text ";
-       valid = false;
+            valid = false;
+    }else{
+        document.getElementById("about-error").style.display = "none";
+        document.getElementById("about-error").innerHTML = "";
     }
     
     return valid;  
