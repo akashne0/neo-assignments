@@ -73,13 +73,13 @@ function validation() {
     var phoneNumberOffice = document.getElementById("txt-phone-number-office").value;
     // office number (only number no other char) validation;
     if (isNaN(phoneNumberOffice)) {
-        document.getElementById("sp-phone-number-offic-error").style.display= "block";
-        document.getElementById("sp-phone-number-offic-error").innerHTML= "**Please enter only number";
+        document.getElementById("sp-phone-number-office-error").style.display= "block";
+        document.getElementById("sp-phone-number-office-error").innerHTML= "**Please enter only number";
         validationFlag = false;
 
     }else{
-        document.getElementById("sp-phone-number-offic-error").style.display= "none";
-        document.getElementById("sp-phone-number-offic-error").innerHTML= "";
+        document.getElementById("sp-phone-number-office-error").style.display= "none";
+        document.getElementById("sp-phone-number-office-error").innerHTML= "";
     }
     
     var email = document.getElementById("txt-email").value;
@@ -121,7 +121,7 @@ function validation() {
 
     // alphanumeric validation;
     var regPassword = /^\w{8,12}$/;
-    if (!regPassword.test(pass)){
+    if (!regPassword.test(password)){
         document.getElementById("sp-password-error").style.display= "block";
         document.getElementById("sp-password-error").innerHTML= "**Password should be alpha-numeric and between 8-12 characters";
         validationFlag = false;
@@ -176,6 +176,10 @@ function validation() {
         document.getElementById("sp-date-error").innerHTML= "please select proper date format";
         validationFlag = false;
 
+    // }else if(month == "2" ){
+        
+        
+
     }else{
         document.getElementById("sp-date-error").style.display= "none";
         document.getElementById("sp-date-error").innerHTML= "";
@@ -222,9 +226,37 @@ function validation() {
 
 
 function calculateAge(){
+
     let  day= document.getElementById("birth-day").value;
     let  month= document.getElementById("birth-month").value;
-    let   year= document.getElementById("birth-year").value;
+    let  year= document.getElementById("birth-year").value;
+    
+    document.getElementById("day-29").style.display = "block";
+    document.getElementById("day-30").style.display = "block";
+    document.getElementById("day-31").style.display = "block";
+
+    // month validation
+    if(month == "4"){
+        document.getElementById("day-31").style.display = "none";
+    };
+    if(month == "6" ){
+        document.getElementById("day-31").style.display = "none";
+    };
+    if(month == "9" ){
+        document.getElementById("day-31").style.display = "none";
+    };
+    if(month == "11"){
+        document.getElementById("day-31").style.display = "none";
+    };
+
+    if(month == "2" && (year % 4 == 0)){
+            document.getElementById("day-30").style.display = "none";
+            document.getElementById("day-31").style.display = "none";
+    }else if(month == "2" && (year % 4 != 0)){
+            document.getElementById("day-29").style.display = "none";
+            document.getElementById("day-30").style.display = "none";
+            document.getElementById("day-31").style.display = "none";
+    };
 
     if( day != "day" && month != "month" && year != "year" ){
         var stringDate = month + "/" + day + "/" + year 

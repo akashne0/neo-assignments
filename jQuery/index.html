@@ -28,7 +28,7 @@
 <!-- Responsive -->
 <link href="css/responsive.css" rel="stylesheet" />
 
-<script defer src="assign2-16032022.js"></script>
+<script defer src="assign3-21032022.js"></script>
 <style>
 	.error-msg{
 		color:red;
@@ -124,54 +124,54 @@
 			</div>
 
 			<div class="contect_text">So we can successfully match your details with suitable people, we first need to collect some information about you. Read each question carfully and  select or place a tick in the box for each of your characteristics. Please answer as honestly as you can, otherwise you may be disappointed with your matches and they with you.</div>
-			<form name="forms"  action="#" onsubmit="return validation()" >
+			<form>
 				<div class="form_container_block">
 
 					<ul>
 						<li class="fileds">
 							<div class="name_fileds">
-								<label>First Name <span class="error-msg">*</span></label>
-								<input name="firstname" type="text" id="txt-firstname"/>
+								<label>First Name<span class="error-msg">*</span></label>
+								<input name="firstname" type="text" id="txt-firstname" autocomplete="off"/>
 								<span class="error-msg" id="sp-firstname-error"></span>
 							</div>
 							<div class="name_fileds">
-								<label>Last Name <span class="error-msg">*</span></label>
+								<label>Last Name<span class="error-msg">*</span></label>
 								<input name="lastname" type="text" id="txt-lastname" />
 								<span class="error-msg" id="sp-lastname-error"></span>
 							</div>
 						</li>
 						<li class="fileds">
 							<div class="phone_fileds">
-								<label>Phone No <span class="error-msg">*</span></label>
+								<label>Phone No<span class="error-msg">*</span></label>
 								<input name="phone" type="text" id="txt-phone" />
 								<span class="error-msg" id="sp-phone-error"></span>
 							</div>
 							<div class="phone_fileds">
-								<label>Office No</label>
+								<label>Office No </label>
 								<input name="office" type="text" id="txt-phone-number-office" />
 								<span class="error-msg" id="sp-phone-number-office-error"></span>
 							</div>
 						</li>
 						<li class="fileds">
 							<div class="email_fileds">
-								<label>Email <span class="error-msg">*</span></label>
+								<label>Email<span class="error-msg">*</span></label>
 								<input name="email" type="text" id="txt-email" />
 								<span class="error-msg" id="sp-email-error"></span>
 							</div>
 							<div class="pass_fileds">
-								<label>Password <span class="error-msg">*</span></label>
+								<label>Password<span class="error-msg">*</span></label>
 								<input name="password" type="text" id="txt-password" />
 								<span class="error-msg" id="sp-password-error"></span>
 							</div>
 						</li>
 						<li class="fileds">
 							<div class="pass_fileds">
-								<label>Confirm Password <span class="error-msg">*</span></label>
+								<label>Confirm Password<span class="error-msg">*</span></label>
 								<input name="password" type="text" id="txt-confirm-password" />
 								<span class="error-msg" id="sp-confirm-password-error"></span>
 							</div>
 								<div class="dob_fileds selectbox">
-									<label>My birthdate is <span class="error-msg">*</span></label>
+									<label>My birthdate is<span class="error-msg">*</span></label>
 
 									<ul>
 										<li>
@@ -241,12 +241,12 @@
 						</li>
 						<li class="fileds">
 							<div class="age_fileds">
-								<label>Age <span class="error-msg">*</span></label>
+								<label>Age<span class="error-msg">*</span></label>
 								<input name="age" type="text" id="txt-age" disabled/>
 								<span class="error-msg" id="sp-age-error"></span>
 							</div>
 							<div class="gender_fileds">
-								<label>Gender <span class="error-msg">*</span></label>
+								<label>Gender<span class="error-msg">*</span></label>
 								<ul>
 									<li><input type="radio" class="radio" id="residence1" name="rdb-gender" value="male" /><label class="radio-label" for="residence1">Male</label></li>
 									<li><input type="radio" class="radio" id="residence2" name="rdb-gender" value="female" /><label class="radio-label" for="residence2">Female</label></li>
@@ -256,7 +256,7 @@
 						</li>
 						<li>
 							<div class="interest_fileds">
-							<label>Interest <span class="error-msg">*</span></label>
+							<label>Interest<span class="error-msg">*</span></label>
 								<ul>
 									<li><input type="checkbox" class="checkbox" id="checkbox_sample18" name="chkbx-activity" /> <label class="css-label" for="checkbox_sample18">Biking</label></li>
 									<li><input type="checkbox" class="checkbox" id="checkbox_sample19" name="chkbx-activity" /> <label class="css-label" for="checkbox_sample19">Reading</label></li>
@@ -265,15 +265,15 @@
 								<span class="error-msg" id="sp-interest-error"></span>
 							</div>
 							<div class="about_you_fileds">
-							<label>About you <span class="error-msg">*</span></label>
+							<label>About you<span class="error-msg">*</span></label>
 							<textarea id="txt-about" name="text"></textarea>
 							<span class="error-msg" id="sp-about-error"></span>
 							</div>
 						</li>
 					</ul>
 					<div class="next_btn_block">
-						<div class="next_btn" onclick="validation()">
-							<input type="submit" name="submit" id="submit" class="btn btn-sucess">
+						<div class="next_btn">
+							<input type="submit" name="submit" id="btn-submit" class="btn btn-success">
 							<a href="partners_preference_form.html">Proceed to Step 2 <span><img src="images/small_triangle.png" alt="small_triangle"> </span></a>
 						</div>
 					</div>
