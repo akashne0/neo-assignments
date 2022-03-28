@@ -394,17 +394,9 @@ function calculateAge(){
     document.getElementById("day-29").style.display = "block";
     document.getElementById("day-30").style.display = "block";
     document.getElementById("day-31").style.display = "block";
-
-    if(month == "4"){
-        document.getElementById("day-31").style.display = "none";
-    };
-    if(month == "6" ){
-        document.getElementById("day-31").style.display = "none";
-    };
-    if(month == "9" ){
-        document.getElementById("day-31").style.display = "none";
-    };
-    if(month == "11"){
+    
+    var monthsWith30Days = ["4", "6", "9", "11"];
+    if(monthsWith30Days.includes(month)){
         document.getElementById("day-31").style.display = "none";
     };
 
