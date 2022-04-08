@@ -1,4 +1,4 @@
-window.onload = function () {
+window.onload = function(){
     //Reference the DropDownList.
     var years = document.getElementById("birth-year");
 
@@ -20,13 +20,13 @@ function validation() {
     
     // for first name validation
     var firstName = document.getElementById("txt-firstname").value;
-    if (firstName == ""){
+    if(firstName == ""){
         document.getElementById("sp-firstname-error").style.display = "block";
         document.getElementById("sp-firstname-error").innerHTML = "**Please enter your first name";
         validationFlag = false;
 
     }else{
-        document.getElementById("sp-firstame-error").style.display = "none";
+        // document.getElementById("sp-firstame-error").style.display = "none";
         document.getElementById("sp-firstname-error").innerHTML = "";
     }
 
@@ -200,7 +200,7 @@ function validation() {
     
     // interest validation
     var checkboxActivity = document.querySelectorAll('input[name="chkbx-activity"]:checked').length;
-    if (checkboxActivity < 2){
+    if (checkboxActivity < 1){
         document.getElementById("sp-interest-error").style.display = "block";
         document.getElementById("sp-interest-error").innerHTML = "**please select atleast 1 value";
         validationFlag = false;
